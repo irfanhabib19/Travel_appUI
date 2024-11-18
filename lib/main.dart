@@ -8,12 +8,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Travel app ',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -40,6 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.redAccent,
           title: Text(widget.title),
         ),
-        body: Container());
+        body: Container(
+          width: 800,
+          height: 700,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: Colors.blueAccent,
+          ),
+          child: CircleAvatar(
+            backgroundImage: AssetImage("assets/images/venice.jpg"),
+          ),
+        ));
   }
 }
