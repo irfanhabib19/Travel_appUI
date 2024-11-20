@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travel_appui/widgets/destinationCursor.dart';
 
 class Homescreen extends StatefulWidget {
   Homescreen({super.key});
@@ -66,33 +67,7 @@ class HomeScreenState extends State<Homescreen> {
                 .entries
                 .map((MapEntry map) => iconBuilder(map.key))
                 .toList()),
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    "Top Destination",
-                    style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.5,
-                        color: Colors.black),
-                  ),
-                  Text(
-                    "See All ",
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 111, 214, 239)),
-                  )
-                ],
-              ),
-            )
-          ],
-        )
+        Destinationcursor(),
       ]),
     ));
   }
