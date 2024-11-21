@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_appui/widgets/destinationCursor.dart';
+import 'package:travel_appui/widgets/hotelCursor.dart';
 
 class Homescreen extends StatefulWidget {
   Homescreen({super.key});
@@ -68,6 +69,10 @@ class HomeScreenState extends State<Homescreen> {
                 .map((MapEntry map) => iconBuilder(map.key))
                 .toList()),
         Destinationcursor(),
+        SizedBox(
+          height: 15,
+        ),
+        Hotelcursor(),
       ]),
     ));
   }
