@@ -11,6 +11,7 @@ class Homescreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<Homescreen> {
+  int currentTab = 0;
   int _selectedIndex = 0;
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
@@ -49,31 +50,61 @@ class HomeScreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: ListView(padding: EdgeInsets.symmetric(vertical: 30), children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 120),
-          child: Text(
-            "what would you like to find ?",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      body: SafeArea(
+        child: ListView(padding: EdgeInsets.symmetric(vertical: 30), children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 120),
+            child: Text(
+              "what would you like to find ?",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: _icons
-                .asMap()
-                .entries
-                .map((MapEntry map) => iconBuilder(map.key))
-                .toList()),
-        Destinationcursor(),
-        SizedBox(
-          height: 15,
-        ),
-        Hotelcursor(),
-      ]),
-    ));
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _icons
+                  .asMap()
+                  .entries
+                  .map((MapEntry map) => iconBuilder(map.key))
+                  .toList()),
+          Destinationcursor(),
+          SizedBox(
+            height: 15,
+          ),
+          Hotelcursor(),
+        ]),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentTab,
+          onTap: (int value) {
+            setState(() {
+              currentTab = value;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
+                  size: 30,
+                ),
+                label: " search "),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.explore,
+                  size: 30,
+                ),
+                label: 'explore'),
+            BottomNavigationBarItem(
+                icon: CircleAvatar(
+                  radius: 15,
+                  backgroundImage: NetworkImage(
+                      'https://www.pixelstalk.net/wp-content/uploads/2016/08/Cute-girls-hd-images.jpg'),
+                ),
+                label: "profile "),
+          ]),
+    );
   }
 }
