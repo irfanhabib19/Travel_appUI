@@ -108,13 +108,16 @@ class Destinationcursor extends StatelessWidget {
                                   ]),
                               child: Stack(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Image(
-                                      height: 180,
-                                      width: 180,
-                                      image: AssetImage(desti.imageUrl),
-                                      fit: BoxFit.cover,
+                                  Hero(
+                                    tag: desti.imageUrl,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: Image(
+                                        height: 180,
+                                        width: 180,
+                                        image: AssetImage(desti.imageUrl),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                   Positioned(
