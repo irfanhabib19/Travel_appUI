@@ -91,7 +91,7 @@ class DestinationScreenState extends State<DestinationScreen> {
                     style: TextStyle(
                         fontSize: 33,
                         fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 255, 252, 252)),
+                        color: const Color.fromARGB(255, 222, 217, 217)),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -127,6 +127,7 @@ class DestinationScreenState extends State<DestinationScreen> {
           ]),
           Expanded(
             child: ListView.builder(
+              padding: EdgeInsets.only(top: 10, bottom: 15),
               itemCount: widget.destination.activities.length,
               itemBuilder: (BuildContext context, int index) {
                 Activity acti = widget.destination.activities[index];
@@ -137,8 +138,18 @@ class DestinationScreenState extends State<DestinationScreen> {
                       height: 170,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 244, 239, 239),
-                          borderRadius: BorderRadius.circular(21)),
+                          color: const Color.fromARGB(255, 247, 242, 242),
+                          borderRadius: BorderRadius.circular(21),
+                          boxShadow: [
+                            BoxShadow(
+                                color: const Color.fromARGB(
+                                  255,
+                                  169,
+                                  196,
+                                  241,
+                                ),
+                                offset: Offset(4.0, 2.0))
+                          ]),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(100, 20, 20, 20),
                         child: Column(
@@ -184,30 +195,52 @@ class DestinationScreenState extends State<DestinationScreen> {
                             ),
                             Row(
                               children: [
-                                Container(
-                                  width: 70,
-                                  height: 20,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(21),
-                                      color: const Color.fromARGB(
-                                          255, 112, 222, 237)),
-                                  child: Center(child: Text(acti.startTime[0])),
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Container(
+                                    width: 70,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(21),
+                                        color: const Color.fromARGB(
+                                            255, 112, 222, 237)),
+                                    child:
+                                        Center(child: Text(acti.startTime[0])),
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 5.0,
                                 ),
-                                Container(
-                                  width: 70,
-                                  height: 20,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(21),
-                                      color: const Color.fromARGB(
-                                          255, 129, 232, 234)),
-                                  child: Center(child: Text(acti.startTime[1])),
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Container(
+                                    width: 70,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(21),
+                                        color: const Color.fromARGB(
+                                            255, 129, 232, 234)),
+                                    child:
+                                        Center(child: Text(acti.startTime[1])),
+                                  ),
                                 )
                               ],
                             )
                           ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 25.0,
+                      top: 10,
+                      bottom: 15.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(21),
+                        child: Image(
+                          width: 110.0,
+                          height: 200,
+                          image: AssetImage(acti.imageUrl),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     )

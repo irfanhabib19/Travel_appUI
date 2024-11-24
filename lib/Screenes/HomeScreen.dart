@@ -55,7 +55,7 @@ class HomeScreenState extends State<Homescreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 120),
             child: Text(
-              "what would you like to find ?",
+              "what you would like to find ?",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
